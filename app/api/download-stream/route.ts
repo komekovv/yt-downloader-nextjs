@@ -7,9 +7,9 @@ import os from "os";
 import { randomBytes } from "crypto";
 
 export const runtime = "nodejs";
-export const maxDuration = 3600; // 60 minutes (1 hour) - Allow long downloads
+export const maxDuration = 28800; // 8 hours - Allow very long downloads/conversions
 
-const MAX_FILE_SIZE = 2 * 1024 * 1024 * 1024; // 2GB
+const MAX_FILE_SIZE = 5 * 1024 * 1024 * 1024; // 5GB
 
 interface DownloadProgress {
   type: "progress" | "complete" | "error";
@@ -62,7 +62,7 @@ export async function POST(req: NextRequest) {
 
       try {
         const body = await req.json();
-        const { url, format, proxy } = body;
+        const { url, format, proxy, convert, targetFormat } = body;
 
         if (!url || !format) {
           const errorData: DownloadProgress = {
@@ -110,6 +110,18 @@ export async function POST(req: NextRequest) {
 
         if (proxy) {
           args.push("--proxy", proxy);
+        }
+
+        // Add conversion flags if requested
+        if (convert && targetFormat) {
+          if (targetFormat === "mp3") {
+            // Extract audio and convert to MP3
+            args.push("-x"); // Extract audio
+            args.push("--audio-format", "mp3");
+          } else if (targetFormat === "mp4") {
+            // Convert video to MP4
+            args.push("--recode-video", "mp4");
+          }
         }
 
         args.push(url);

@@ -7,10 +7,10 @@ import os from "os";
 import { randomBytes } from "crypto";
 
 export const runtime = "nodejs";
-export const maxDuration = 3600; // 60 minutes (1 hour) - Allow long downloads
+export const maxDuration = 28800; // 8 hours - Allow very long downloads/conversions
 
-// Maximum file size: 2GB (in bytes)
-const MAX_FILE_SIZE = 2 * 1024 * 1024 * 1024;
+// Maximum file size: 5GB (in bytes)
+const MAX_FILE_SIZE = 5 * 1024 * 1024 * 1024;
 
 const execFileAsync = promisify(execFile);
 

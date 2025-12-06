@@ -126,6 +126,26 @@ export default function SettingsModal({
               Automatically fetch thumbnail and video details when a URL is pasted.
             </p>
           </div>
+
+          {/* Show Convertible Formats */}
+          <div className="space-y-2">
+            <label className="flex items-center gap-3 cursor-pointer group">
+              <input
+                type="checkbox"
+                checked={settings.showConvertibleFormats}
+                onChange={(e) =>
+                  onUpdateSettings({ showConvertibleFormats: e.target.checked })
+                }
+                className="w-4 h-4 rounded border-slate-600 bg-slate-800 text-emerald-500 focus:ring-2 focus:ring-emerald-500/70 focus:ring-offset-0 transition cursor-pointer"
+              />
+              <span className="text-sm font-medium text-slate-300 group-hover:text-slate-100 transition">
+                Show convertible formats (WebM, M4A)
+              </span>
+            </label>
+            <p className="text-xs text-slate-500 ml-7">
+              Show formats that can be converted to MP4/MP3. Conversion may take longer.
+            </p>
+          </div>
         </div>
 
         {/* Footer */}

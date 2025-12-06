@@ -162,7 +162,7 @@ export default function HomePage() {
     setError("Download cancelled.");
   };
 
-  const handleDownload = async (formatId: string, line: string) => {
+  const handleDownload = async (formatId: string, line: string, convert?: boolean, targetFormat?: string) => {
     if (!url.trim()) return;
 
     setError(null);
@@ -172,7 +172,7 @@ export default function HomePage() {
     setTotalBytes(undefined);
     setDownloadSpeed(undefined);
     setEta(undefined);
-    setProgressLabel(`Preparing download...`);
+    setProgressLabel(convert ? `Converting to ${targetFormat?.toUpperCase()}...` : `Preparing download...`);
 
     // Create new abort controller
     downloadAbortController.current = new AbortController();
@@ -185,6 +185,8 @@ export default function HomePage() {
           url: url.trim(),
           format: formatId,
           proxy: settings.proxy || undefined,
+          convert: convert || false,
+          targetFormat: targetFormat,
         }),
         signal: downloadAbortController.current.signal,
       });
@@ -455,8 +457,8 @@ export default function HomePage() {
             url={url}
             formats={formats}
             onDownload={handleDownload}
-            preferredFormats={settings.preferredFormats}
             isDownloading={isDownloading}
+            showConvertibleFormats={settings.showConvertibleFormats}
           />
         )}
 
