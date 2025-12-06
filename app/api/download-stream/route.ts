@@ -121,7 +121,7 @@ export async function POST(req: NextRequest) {
         let downloadedFile = "";
 
         // Parse progress from stdout (yt-dlp outputs progress here)
-        ytdlpProcess.stdout.on("data", (data) => {
+        ytdlpProcess.stdout.on("data", (data: Buffer) => {
           if (isCancelled) return; // Don't process if cancelled
 
           const output = data.toString();
@@ -189,11 +189,11 @@ export async function POST(req: NextRequest) {
           }
         });
 
-        ytdlpProcess.stderr.on("data", (data) => {
+        ytdlpProcess.stderr.on("data", (data: Buffer) => {
           console.log("yt-dlp stderr:", data.toString());
         });
 
-        ytdlpProcess.on("close", async (code) => {
+        ytdlpProcess.on("close", async (code: number | null) => {
           if (isCancelled) {
             console.log("Download was cancelled, skipping cleanup");
             return;
@@ -301,7 +301,7 @@ export async function POST(req: NextRequest) {
           }
         });
 
-        ytdlpProcess.on("error", (err) => {
+        ytdlpProcess.on("error", (err: Error) => {
           if (isCancelled) return;
 
           console.error("yt-dlp process error:", err);

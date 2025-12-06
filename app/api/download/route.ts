@@ -125,8 +125,9 @@ export async function POST(req: Request) {
       // Create a web-compatible ReadableStream
       const webStream = new ReadableStream({
         start(controller) {
-          readStream.on("data", (chunk) => {
-            controller.enqueue(new Uint8Array(chunk));
+          readStream.on("data", (chunk: string | Buffer) => {
+            const buffer = typeof chunk === "string" ? Buffer.from(chunk) : chunk;
+            controller.enqueue(new Uint8Array(buffer.buffer, buffer.byteOffset, buffer.byteLength));
           });
           readStream.on("end", () => {
             controller.close();
@@ -139,7 +140,7 @@ export async function POST(req: Request) {
               console.error("Failed to clean up temp file:", err);
             }
           });
-          readStream.on("error", (err) => {
+          readStream.on("error", (err: Error) => {
             controller.error(err);
             // Clean up on error
             try {
