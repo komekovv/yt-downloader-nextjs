@@ -2,7 +2,7 @@
 
 A professional, feature-rich YouTube downloader built with Next.js 16, TypeScript, and Tailwind CSS. Download videos and audio from YouTube in multiple formats with a beautiful, modern UI and real-time progress tracking.
 
-> **🤖 Built entirely with Claude AI using vibe coding** - This entire project was created through AI-assisted development, showcasing the power of Claude Code for rapid prototyping and professional application development.
+> **🤖 Built entirely with Claude AI using vibe coding** - This entire project was created through AI-assisted development.
 
 ![Next.js](https://img.shields.io/badge/Next.js-16-black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
