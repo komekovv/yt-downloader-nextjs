@@ -253,7 +253,7 @@ Download video with real-time progress updates via Server-Sent Events (SSE)
 
 **Limits:**
 - Max file size: 2GB
-- Timeout: 5 minutes
+- Timeout: 60 minutes (1 hour) - Supports long downloads
 - Files >100MB: Streamed for memory efficiency
 
 ## 🔒 Security Features
@@ -262,7 +262,7 @@ Download video with real-time progress updates via Server-Sent Events (SSE)
 |---------|---------------|
 | **Command Injection Prevention** | Uses `execFile()` with array arguments instead of shell commands |
 | **URL Validation** | Only accepts valid YouTube URLs (youtube.com, youtu.be) |
-| **Timeout Protection** | 30s for metadata/formats, 5min for downloads |
+| **Timeout Protection** | 30s for metadata/formats, 60min for downloads |
 | **Secure File Handling** | Cryptographically random temp filenames with immediate cleanup |
 | **Size Limits** | 2GB maximum to prevent abuse and resource exhaustion |
 | **Process Management** | Proper cleanup of yt-dlp processes on cancel/error |
