@@ -8,6 +8,8 @@ A professional, feature-rich YouTube downloader built with Next.js 16, TypeScrip
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8)
 ![Claude AI](https://img.shields.io/badge/Built_with-Claude_AI-orange)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
 
 ## ✨ Features
 
@@ -345,6 +347,19 @@ The video preview feature is optional. If it doesn't work:
 - The app will still function normally for downloads
 - You can disable auto-fetch in Settings
 - Use the "Preview" button manually when needed
+
+## 📝 License
+
+This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
+
+## ⚖️ Legal Disclaimer
+
+This project is for **educational and personal use only**.
+
+Downloading copyrighted content without permission may violate YouTube’s Terms of Service and local laws.  
+The author of this project is **not responsible** for how this tool is used.
+
+By using this software, you agree that **you are solely responsible** for complying with all applicable laws and regulations.
 
 ## Contributing
 
