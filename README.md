@@ -5,7 +5,6 @@ A professional, feature-rich YouTube downloader built with Next.js 16, TypeScrip
 ![Next.js](https://img.shields.io/badge/Next.js-16-black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8)
-![License](https://img.shields.io/badge/License-MIT-green)
 
 ## ✨ Features
 
@@ -343,10 +342,6 @@ The video preview feature is optional. If it doesn't work:
 - The app will still function normally for downloads
 - You can disable auto-fetch in Settings
 - Use the "Preview" button manually when needed
-
-## License
-
-MIT
 
 ## Contributing
 
